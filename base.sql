@@ -1,0 +1,26 @@
+CREATE DATABASE tp;
+USE tp;
+
+CREATE TABLE users (
+id INT PRIMARY KEY AUTO_INCREMENT,
+userName VARCHAR(100) NOT NULL,
+email VARCHAR(20) UNIQUE NOT NULL,
+idCreateNota INT NOT NULL,
+FOREIGN KEY (idCreateNota) REFERENCES notas(id)
+);
+
+CREATE TABLE notas (
+id INT PRIMARY KEY AUTO_INCREMENT,
+title VARCHAR(100) NOT NULL,
+creation DATE NULL,
+descriptions TEXT NOT NULL,
+modification DATE NOT NULL,
+borrar VARCHAR(10) NOT NULL,
+idCategorie INT NOT NULL,
+FOREIGN KEY (idCategorie) REFERENCES categories(id)
+);
+
+CREATE TABLE categories (
+id INT PRIMARY KEY AUTO_INCREMENT,
+categorie VARCHAR(100) NOT NULL
+);
